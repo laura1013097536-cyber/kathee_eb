@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPK | Bailarina Profesional y Formadora</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vinotinto: '#5C0F1C',
+                        dorado: '#C5A059',
+                        doradoclaro: '#E5D6B3',
+                        negro: '#0F0F0F',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F0F0F; }
+        ::-webkit-scrollbar-thumb { background: #5C0F1C; }
+        ::-webkit-scrollbar-thumb:hover { background: #C5A059; }
+        
+        .hero-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, #0F0F0F, transparent);
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-overlay {
+                background: linear-gradient(to right, rgba(15,15,15,0.95) 40%, rgba(15,15,15,0.7) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-negro text-white font-sans antialiased selection:bg-dorado selection:text-black">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-negro/95 backdrop-blur-sm border-b border-white/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 cursor-pointer">
+                    <a href="#inicio" class="font-serif text-2xl font-bold tracking-wider text-white">
+                        Katherine<span class="text-dorado">Bautista</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm uppercase tracking-widest hover:text-dorado transition-colors">Perfil</a>
+                    <a href="#experiencia" class="text-sm uppercase tracking-widest hover:text-dorado transition-colors">Experiencia</a>
+                    <a href="#habilidades" class="text-sm uppercase tracking-widest hover:text-dorado transition-colors">Repertorio</a>
+                    <a href="#galeria" class="text-sm uppercase tracking-widest hover:text-dorado transition-colors">Material</a>
+                    <a href="#contacto" class="px-6 py-2 bg-vinotinto text-white text-sm uppercase tracking-widest hover:bg-dorado hover:text-black transition-colors border border-vinotinto hover:border-dorado">Contacto</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-dorado focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-negro border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#inicio" class="block px-3 py-3 text-base uppercase tracking-widest hover:text-dorado">Perfil</a>
+                <a href="#experiencia" class="block px-3 py-3 text-base uppercase tracking-widest hover:text-dorado">Experiencia</a>
+                <a href="#habilidades" class="block px-3 py-3 text-base uppercase tracking-widest hover:text-dorado">Repertorio</a>
+                <a href="#galeria" class="block px-3 py-3 text-base uppercase tracking-widest hover:text-dorado">Material</a>
+                <a href="#contacto" class="block px-3 py-3 text-base uppercase tracking-widest text-dorado font-bold">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20">
+        <!-- Imagen Fondo Móvil (Restaurada) -->
+        <div class="absolute inset-0 w-full h-full md:hidden">
+            <img src="https://images.unsplash.com/photo-1542622728-2ce82eb06a28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bailarina en escenario" class="w-full h-full object-cover object-top opacity-40">
+            <div class="absolute inset-0 mobile-overlay"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                
+                <!-- Text Content -->
+                <div class="w-full md:w-1/2 lg:w-5/12 pt-10 md:pt-0">
+                    <div class="inline-block border-b border-dorado pb-1 mb-6">
+                        <span class="text-dorado uppercase tracking-[0.2em] text-xs font-semibold">Entre la fuerza de la raíz tradicional colombiana y la libertad del movimiento</span>
+                    </div>
+                    
+                    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                        Bailarina <br>
+                        <span class="text-vinotinto italic">& Formadora</span>
+                    </h1>
+                    
+                    <div class="relative">
+                        <i data-lucide="quote" class="absolute -top-4 -left-4 w-8 h-8 text-white/10"></i>
+                        <p class="font-sans text-base md:text-lg text-gray-300 leading-relaxed mb-8 border-l-2 border-vinotinto pl-5 text-justify">
+                            Bailarina y formadora Xuachuna con 9 años de trayectoria en danza folclórica colombiana, jazz y contemporáneo. He representado a Colombia en festivales internacionales en México, Honduras, El Salvador, Chile y Portugal. Mi trabajo escénico destaca por el interés en explorar narrativas que fusionen la fuerza de la danza tradicional colombiana con otras posibilidades del lenguaje artístico. De manera paralela, desarrollo una labor pedagógica enfocada en niños de 3 a 11 años, promoviendo la difusión de nuestras raíces y utilizando el juego como puente para el acercamiento al movimiento. Participante activa de la compañía folclórica Kiribumba como bailarina intérprete y formadora.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                        <a href="#galeria" class="text-center bg-vinotinto hover:bg-dorado hover:text-black text-white px-8 py-4 uppercase tracking-wider text-sm font-semibold transition duration-300">
+                            Ver Dossier
+                        </a>
+                        <a href="#contacto" class="text-center border border-white/30 hover:border-dorado hover:text-dorado px-8 py-4 uppercase tracking-wider text-sm font-semibold transition duration-300">
+                            Booking
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Image (Desktop Restaurada) -->
+                <div class="hidden md:block w-full md:w-1/2 lg:w-7/12 h-[80vh] relative hero-image-container group">
+                    <div class="absolute inset-0 border-2 border-dorado translate-x-4 translate-y-4 -z-10 transition-transform group-hover:translate-x-6 group-hover:translate-y-6 duration-500"></div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1542622728-2ce82eb06a28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                        alt="Bailarina en pose" 
+                        class="w-full h-full object-cover object-center shadow-2xl z-10 relative"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Banner -->
+    <section class="bg-vinotinto py-12 border-y border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/20">
+                <div class="px-4">
+                    <div class="text-4xl md:text-5xl font-serif text-dorado mb-2">9</div>
+                    <div class="text-sm uppercase tracking-widest font-medium">Años de<br>Trayectoria</div>
+                </div>
+                <div class="px-4">
+                    <div class="text-4xl md:text-5xl font-serif text-dorado mb-2">5</div>
+                    <div class="text-sm uppercase tracking-widest font-medium">Países<br>Visitados</div>
+                </div>
+                <div class="px-4">
+                    <div class="text-4xl md:text-5xl font-serif text-dorado mb-2">3+</div>
+                    <div class="text-sm uppercase tracking-widest font-medium">Lenguajes<br>Artísticos</div>
+                </div>
+                <div class="px-4">
+                    <div class="text-4xl md:text-5xl font-serif text-dorado mb-2">5</div>
+                    <div class="text-sm uppercase tracking-widest font-medium">Años en<br>Pedagogía</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia y Visión -->
+    <section id="experiencia" class="py-24 bg-white text-negro">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-negro">Trayectoria <span class="text-vinotinto">Internacional</span></h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        A lo largo de mi carrera he tenido el honor de llevar la riqueza cultural de Colombia a diversos escenarios del mundo. Representar a mi país es un compromiso con la memoria y la identidad.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="text-dorado w-5 h-5 flex-shrink-0"></i>
+                            <span class="font-medium text-gray-800">México</span> - Giras y Festivales de Folklore.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="text-dorado w-5 h-5 flex-shrink-0"></i>
+                            <span class="font-medium text-gray-800">Honduras y El Salvador</span>- Intercambio Cultural Centroamericano Gira y Festivales de Folklore.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="text-dorado w-5 h-5 flex-shrink-0"></i>
+                            <span class="font-medium text-gray-800">Chile</span> - Encuentros de Danza Latinoamericana.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="text-dorado w-5 h-5 flex-shrink-0"></i>
+                            <span class="font-medium text-gray-800">Portugal</span> - Representación en Europa.
+                        </li>
+                    </ul>
+                    
+                    <div class="p-6 bg-gray-50 border-l-4 border-vinotinto">
+                        <h3 class="font-serif text-xl font-bold mb-2">Compañía Kiribumba</h3>
+                        <p class="text-sm text-gray-600">Participación activa como bailarina intérprete y formadora, aportando a la creación y preservación del repertorio tradicional colombiano.</p>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 relative">
+                    <div class="aspect-square bg-gray-200 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500 z-10 flex items-center justify-center">
+                            <span class="text-white font-serif text-2xl tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">Explorar Mundo</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Danza en escenario" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-dorado -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades y Pedagogía -->
+    <section id="habilidades" class="py-24 bg-negro">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dorado uppercase tracking-widest text-sm font-semibold">Perfil Artístico</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2 mb-6">Fusión y <span class="text-vinotinto">Enseñanza</span></h2>
+                <p class="text-gray-400">
+                    Mi trabajo escénico explora narrativas que unen la fuerza de la tradición con lenguajes contemporáneos, mientras mi labor pedagógica siembra la semilla del movimiento en las nuevas generaciones.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-[#161616] p-8 border-t-2 border-vinotinto hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-12 h-12 bg-vinotinto rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="music" class="text-white"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-4 text-white">Intérprete Versátil</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Dominio técnico y expresivo en diversos géneros, buscando siempre la autenticidad en el escenario.
+                    </p>
+                    <ul class="text-sm text-doradoclaro space-y-2">
+                        <li>• Danza Folclórica Colombiana</li>
+                        <li>• Jazz Dance</li>
+                        <li>• Danza Contemporánea</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#161616] p-8 border-t-2 border-dorado hover:-translate-y-2 transition-transform duration-300 shadow-[0_0_30px_rgba(197,160,89,0.05)]">
+                    <div class="w-12 h-12 bg-dorado rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="smile" class="text-black"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-4 text-white">Formadora Infantil</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Labor pedagógica enfocada en niños de 3 a 11 años. Utilizo el juego como puente principal para el acercamiento al movimiento corporal, la rítmica y la espacialidad.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-[#161616] p-8 border-t-2 border-white/20 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="sprout" class="text-white"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-4 text-white">Difusión Cultural</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Comprometida con la promoción de nuestras raíces Xuachunas y colombianas. Cada clase y cada presentación es una oportunidad para fortalecer nuestra identidad cultural.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería / Material Visual (EPK) -->
+    <section id="galeria" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-negro">Material <span class="text-dorado">Visual</span></h2>
+                    <p class="text-gray-600 mt-2">Registro de participación en festivales, creaciones autónomas, proyectos como bailarina interprete .</p>
+                </div>
+                <button class="hidden md:flex items-center gap-2 text-vinotinto font-semibold hover:text-dorado transition-colors">
+                    <i data-lucide="download" class="w-5 h-5"></i> Acceso a Cv
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="col-span-1 sm:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden bg-negro aspect-video sm:aspect-auto">
+                    <img src="https://images.unsplash.com/photo-1518834107812-6a3f01c9b2bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Reel de Danza" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <div class="w-20 h-20 bg-dorado/90 rounded-full flex items-center justify-center cursor-pointer hover:bg-vinotinto transition-colors duration-300 hover:scale-110 shadow-lg">
+                            <i data-lucide="play" class="w-8 h-8 text-black group-hover:text-white fill-current ml-1"></i>
+                        </div>
+                        <span class="text-white font-serif mt-4 text-xl tracking-wider">Ver Showreel 2026</span>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Danza Contemporánea" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 grayscale hover:grayscale-0">
+                </div>
+                
+                <div class="relative group overflow-hidden aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1502519144081-acca18599776?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Jazz Dance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 grayscale hover:grayscale-0">
+                </div>
+                
+                <div class="col-span-1 sm:col-span-2 lg:col-span-3 aspect-[21/9] relative group overflow-hidden bg-vinotinto">
+                    <div class="absolute inset-0 bg-vinotinto/80 z-10"></div>
+                    <img src=>
+                    <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6">
+                        <i data-lucide="camera" class="w-10 h-10 text-dorado mb-4"></i>
+                        <h3 class="text-white font-serif text-2xl md:text-3xl font-bold">Video Youtube</h3>
+                        <p class="text-gray-200 mt-2 max-w-lg mx-auto text-sm">Accede a videos de proyectos realizados.</p>
+                        <button class="mt-6 border border-white text-white hover:bg-white hover:text-vinotinto px-6 py-2 uppercase text-xs tracking-widest font-bold transition-colors">https://www.youtube.com/watch?v=-9HU8f5pXZI&list=PLRA9ofI8KNRreC0juxfpyU5G3NTNUBf5D&pp=sAgC</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <button class="flex items-center justify-center gap-2 text-vinotinto font-semibold mx-auto border border-vinotinto px-6 py-3 w-full hover:bg-vinotinto hover:text-white transition-colors">
+                    <i data-lucide="download" class="w-5 h-5"></i> 
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / Contrataciones -->
+    <section id="contacto" class="py-24 bg-negro relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-vinotinto/5 skew-x-12 translate-x-32 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <!-- Info -->
+                <div class="w-full lg:w-5/12">
+                    <span class="text-dorado uppercase tracking-widest text-sm font-semibold">Booking & Prensa</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2 mb-8 text-white">Trabajemos <span class="text-vinotinto">Juntos</span></h2>
+                    
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Disponible para contrataciones en festivales, eventos culturales, dictado de talleres y proyectos artísticos colaborativos.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10">
+                                <i data-lucide="mail" class="text-dorado"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 uppercase tracking-wider">Email</p>
+                                <a href=Lkthbb14@gmail.com class="text-white hover:text-dorado transition-colors">Lkthbb14@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10">
+                                <i data-lucide="phone" class="text-dorado"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 uppercase tracking-wider">Teléfono / WhatsApp</p>
+                                <a href="tel:+57 300 3537840 class="text-white hover:text-dorado transition-colors">+57 300 3537840</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10">
+                                <i data-lucide=Katheee_eb class="text-dorado"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 uppercase tracking-wider">Redes Sociales</p>
+                                <a href="#" class="text-white hover:text-dorado transition-colors">@Katheee_eb</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="w-full lg:w-7/12">
+                    <form id="contactForm" class="bg-[#161616] p-8 md:p-10 border border-white/10 shadow-2xl relative">
+                        <div class="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-dorado"></div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="nombre" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Nombre / Entidad</label>
+                                <input type="text" id="nombre" class="w-full bg-negro border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-dorado transition-colors" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Correo Electrónico</label>
+                                <input type="email" id="email" class="w-full bg-negro border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-dorado transition-colors" placeholder="correo@ejemplo.com">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="asunto" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Asunto</label>
+                            <select id="asunto" class="w-full bg-negro border border-white/20 text-gray-300 px-4 py-3 focus:outline-none focus:border-dorado transition-colors appearance-none">
+                                <option value="">Selecciona un motivo...</option>
+                                <option value="festival">Invitación a Festival / Evento</option>
+                                <option value="taller">Contratación Taller / Formación</option>
+                                <option value="prensa">Entrevista / Prensa</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="mb-8">
+                            <label for="mensaje" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Mensaje</label>
+                            <textarea id="mensaje" rows="4" class="w-full bg-negro border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-dorado transition-colors resize-none" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-dorado text-black font-bold uppercase tracking-widest py-4 hover:bg-vinotinto hover:text-white transition-colors duration-300">
+                            Enviar Propuesta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Restaurado y Completo) -->
+    <footer class="bg-negro border-t border-white/10 py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-gray-500 text-sm font-sans">
+                &copy; 2026. EPK Profesional. Todos los derechos reservados. <br>
+                <span class="text-xs mt-2 inline-block">Bailarina Formadora | Katherine Bautista | Xuacha - Colombia</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts (Restaurados y Completos) -->
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Navbar interactivo
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.replace('bg-negro/95', 'bg-negro');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.replace('bg-negro', 'bg-negro/95');
+            }
+        });
+
+        // Menú móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Animación del formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = 'Enviando...';
+            btn.classList.replace('bg-dorado', 'bg-gray-500');
+            
+            setTimeout(() => {
+                btn.innerHTML = '¡Mensaje Enviado!';
+                btn.classList.replace('bg-gray-500', 'bg-green-600');
+                btn.classList.add('text-white');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-dorado');
+                    btn.classList.remove('text-white');
+                    this.reset();
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
